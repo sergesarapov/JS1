@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sarapov - JS1 - Lesson 2</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      "use strict";
+      /*
+        // TASK #1
+        //пример 1
+        let a = 1,
+          b = 1,
+          c,
+          d; //объявляются 4 переменные: a и b со знач. 1
+        //и с и d со значением undefinded
+        c = ++a; //в с записывается значение из а (1) с префиксным инкрементом
+        // как если бы было записано c = a + 1
+        alert(c); // ответ: 2
+        //пример 2
+        d = b++; //так как используется постфиксный инкремент,
+        //то он прибавит 1 к значению в b, но в d запишется изначальное значение
+        alert(d); //ответ: 1
+        //пример 3
+        c = 2 + ++a; //держим в уме, что уже а = 2 (пример 1),
+        //таким образом перфиксный инкремент сделает а = 3, а дальше прибавится 2
+        alert(c); //ответ: 5
+        //пример 4
+        d = 2 + b++; // на данном этапе b = 2 (пример 2), будет 2 + 2 = 4
+        //постфиксный инкремент запишет в b + 1 = 3
+        alert(d); //ответ: 4
+        alert(a); //3
+        alert(b); //3
+        */
+
+      /*
+        // TASK #2
+        let a = 2;
+        let x = 1 + (a *= 2); //в скобках срабатывает присваивание с умножением
+        //как если бы a = a * 2, получается 4 и + 2 = 5
+        */
+      /*
+        // TASK #3
+        let a = 3;
+        let b = -1;
+
+        if (a >= 0 && b >= 0) {
+          alert(a - b);
+        }
+        if (a < 0 && b < 0) {
+          alert(a * b);
+        }
+        if (Math.sign(a) !== Math.sign(b)) {
+          alert(a + b);
+        }
+        */
+
+      // TASK 4
+      function addFunc(a, b) {
+        let result = a + b;
+        return result;
+      }
+
+      function subFunc(a, b) {
+        let result = a - b;
+        return result;
+      }
+
+      function multiFunc(a, b) {
+        let result = a * b;
+        return result;
+      }
+
+      function divFunc(a, b) {
+        let result = a / b;
+        return result;
+      }
+
+      // TASK #5
+
+      /**
+       * mathOperation - В зависимости от переданного значения операции
+       * выполняет одну из арифметических операций.
+       *
+       * @param  {number} arg1      Значение первого аргумента
+       * @param  {number} arg2      Значение второго аргумента
+       * @param  {string} operation Название арифметической операции,
+       * принимает: "addition", "subtraction", "multiplication", "division"
+       * @return {number}           Возвращает результат арифм. операции
+       * с заданыыми аргументами
+       */
+      function mathOperation(arg1, arg2, operation) {
+        let result = "";
+        switch (operation) {
+          case "addition":
+            result = addFunc(arg1, arg2);
+            break;
+          case "subtraction":
+            result = subFunc(arg1, arg2);
+            break;
+          case "multiplication":
+            result = multiFunc(arg1, arg2);
+            break;
+          case "division":
+            result = divFunc(arg1, arg2);
+            break;
+          default:
+            alert("Incorrect or lack of parameters");
+        }
+        return result;
+      }
+      console.log(mathOperation(10, 56, "multiplication"));
+
+      // TASK #6
+      let amountOfRub = prompt("Введите сумму в рублях");
+      checkAmount(amountOfRub);
+
+      function checkAmount(amountOfRub) {
+        if (
+          //Проверка на ошибочный ввод или отказ
+          amountOfRub == "" ||
+          amountOfRub == null ||
+          Number.isNaN(parseInt(amountOfRub))
+        ) {
+          alert("Ошибка!");
+          return checkAmount(prompt("Введите сумму в рублях"));
+        }
+
+        let prednulNumber = parseInt(
+          amountOfRub.charAt(amountOfRub.length - 2)
+        ); //Нахожу предпоследнюю цифру и сразу перевожу в число.
+        let lastNumber = parseInt(amountOfRub % 10); //Нахожу последнюю цифру
+        //и сразу перевожу в число.
+        let ruble = ""; //Объявляю пустую переменную для слова в нужном падеже.
+
+        if (prednulNumber == 1) {
+          ruble = "рублей"; //Если предпосл. цифра 1, то всегда будет "рублей"
+        } else {
+          //В ином случае работает switch
+          switch (lastNumber) {
+            case 2:
+            case 3:
+            case 4:
+              ruble = "рубля";
+              break;
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 0:
+              ruble = "рублей";
+              break;
+            case 1:
+              ruble = "рубль";
+          }
+        }
+        return alert(`Ваша сумма в ${amountOfRub} ${ruble} успешно зачислена`);
+        //Возвращаю результат с нужными переменными
+      }
+    </script>
+  </body>
+</html>
