@@ -43,9 +43,7 @@
 
       //#1
       function isTherePhotos(obj) {
-        if (obj.photos !== undefined && obj.photos.length !== 0) {
-          return obj;
-        }
+        return obj.photos !== undefined && obj.photos.length !== 0;
       }
       let productsWithPhotos = products.filter(isTherePhotos);
       console.log(productsWithPhotos);
@@ -58,6 +56,7 @@
         if (product1.price < product2.price) {
           return -1;
         }
+        return 0;
       });
       console.log(products);
     </script>
