@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  width: 600px;
+  background-color: grey;
+  margin: 30px auto;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+
+  background-color: #fff;
+  margin: 16px;
+}
+
+.price {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 16px;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+}
+
+.purge {
+  width: 150px;
+}
+
+.cart-box {
+  display: flex;
+  flex-direction: column;
+  background-color: hotpink;
+  width: 100px;
+  margin: 8px;
+}
