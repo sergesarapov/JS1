@@ -1,5 +1,5 @@
 "use strict";
-let products = document.querySelectorAll(".product");
+// let products = document.querySelectorAll(".product");
 let basket = document.querySelector(".cart");
 let itemsBox = basket.querySelector(".items-box");
 let priceCount = document.querySelector(".price-count");
@@ -40,7 +40,7 @@ let cart = {
         return true;
       }
     }
-    return;
+    // return;
   },
 
   addQuantity(item) {
@@ -52,15 +52,15 @@ let cart = {
       }
     });
   },
-  removeQuantity(item) {
-    this.cartItems.forEach((product, index) => {
-      if (product.id == item.id) {
-        product.quantity--;
-      } else {
-        return;
-      }
-    });
-  },
+  // removeQuantity(item) {
+  //   this.cartItems.forEach((product, index) => {
+  //     if (product.id == item.id) {
+  //       product.quantity--;
+  //     } else {
+  //       return;
+  //     }
+  //   });
+  // },
 
   addItem(newItem) {
     if (this.checkIfAdded(newItem)) {
